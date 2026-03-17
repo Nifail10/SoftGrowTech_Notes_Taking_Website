@@ -1,4 +1,3 @@
-/* Modern Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
 * {
@@ -24,58 +23,32 @@ body {
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease-out;
 }
 
-h1 {
-    text-align: center;
-    color: #2d3436;
-    margin-bottom: 25px;
-    font-weight: 600;
-    letter-spacing: -1px;
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Search Bar */
-#search-bar {
+h1 { text-align: center; color: #2d3436; margin-bottom: 25px; }
+
+#search-bar, #note-heading, textarea {
     width: 100%;
     padding: 12px 15px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: 1px solid #dfe6e9;
     border-radius: 12px;
     outline: none;
-    transition: 0.3s;
     background: #fdfdfd;
 }
 
-#search-bar:focus {
-    border-color: #74b9ff;
-    box-shadow: 0 0 8px rgba(116, 185, 255, 0.3);
-}
+#note-heading { font-weight: 600; }
 
-/* Input Section */
-.input-section {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 30px;
-}
-
-textarea {
-    width: 100%;
-    height: 120px;
-    padding: 15px;
-    border: 1px solid #dfe6e9;
-    border-radius: 12px;
-    resize: none;
-    outline: none;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-textarea:focus {
-    border-color: #74b9ff;
-}
+textarea { height: 100px; resize: none; }
 
 #add-btn {
+    width: 100%;
     padding: 12px;
     background: #0984e3;
     color: white;
@@ -86,83 +59,43 @@ textarea:focus {
     transition: 0.3s;
 }
 
-#add-btn:hover {
-    background: #074973;
-    transform: translateY(-2px);
-}
+#add-btn:hover { background: #074973; transform: translateY(-2px); }
 
-/* Notes Cards */
 .note-card {
     background: white;
     padding: 20px;
-    margin-bottom: 15px;
+    margin-top: 15px;
     border-radius: 15px;
-    border: 1px solid #f1f2f6;
+    border-left: 5px solid #0984e3;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
+    animation: fadeInUp 0.5s ease-out backwards;
 }
 
-.note-card:hover {
-    transform: scale(1.01);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-}
-
-.note-content {
+.note-card h3 {
     color: #2d3436;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    white-space: pre-wrap; /* Preserves line breaks */
+    margin-bottom: 8px;
+    font-size: 1.1rem;
 }
+
+.note-content { color: #636e72; font-size: 14px; margin-bottom: 12px; }
 
 .note-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #f1f2f6;
-    padding-top: 12px;
+    padding-top: 10px;
 }
 
-.note-date {
-    font-size: 11px;
-    color: #b2bec3;
-    text-transform: uppercase;
-    font-weight: 600;
-}
+.note-date { font-size: 11px; color: #b2bec3; }
 
 .delete-btn {
     background: #ff7675;
     color: white;
     border: none;
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: 8px;
-    font-size: 12px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-.delete-btn:hover {
-    background: #d63031;
-}
-/* Animation Keyframes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Apply animation to the main container */
-.container {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* Apply a staggered delay to the notes so they pop in one by one */
-.note-card {
-    animation: fadeInUp 0.5s ease-out forwards;
-}
+.delete-btn:hover { background: #d63031; }
